@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import tw from 'tailwind.macro'
+import {GlobalStyle} from './components'
+// import {AppMachine} from './machines'
+
+const AppWrapper = tw.div`min-h-screen min-w-screen h-screen w-screen flex bg-gray-100`
+const Main = tw.main`flex flex-1 flex-grow w-full flex-col overflow-x-scroll`
 
 function App() {
+  // const [current, send] = useMachine(AppMachine)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppWrapper>
+      <GlobalStyle />
+      <Main>
+        <p>Testing</p>
+      </Main>
+    </AppWrapper>
+  )
 }
 
-export default App;
+export default App
