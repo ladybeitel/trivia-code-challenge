@@ -1,3 +1,4 @@
+import {navigate} from '@reach/router'
 import {assign, Machine} from 'xstate'
 import {fetchAndNormalizeQuizData} from '../utils'
 
@@ -21,6 +22,7 @@ export const appMachine = Machine<
         on: {
           START_QUIZ: 'loading',
         },
+        exit: 'navigateToQuiz',
       },
       loading: {
         invoke: {
@@ -42,6 +44,7 @@ export const appMachine = Machine<
         },
       },
       quiz: {
+        entry: 'checkAndSetupQuiz',
         on: {
           '': {
             target: 'results',
@@ -63,6 +66,7 @@ export const appMachine = Machine<
   },
   {
     actions: {
+      navigateToQuiz: () => navigate(`/quiz`),
       resetGame: assign(ctx => ({
         currentQuestion: 0,
         currentQuestionDisplay: 1,
