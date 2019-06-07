@@ -3,7 +3,7 @@
 exports[`<Button/> should render without crashing 1`] = `
 <div>
   <button
-    class="Button-q62e7v-0 fCHivJ"
+    class="Button-q62e7v-0 hAohKb"
   />
 </div>
 `;
