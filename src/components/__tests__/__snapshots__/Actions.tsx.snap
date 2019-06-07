@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Actions/> should render without crashing 1`] = `
+<div>
+  <div
+    class="Actions-sc-112osew-0 hAQIt"
+  />
+</div>
+`;

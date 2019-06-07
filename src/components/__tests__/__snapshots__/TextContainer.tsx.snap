@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextContainer/> should render without crashing 1`] = `
+<div>
+  <div
+    class="TextContainer-f4rh0o-0 eTVRnu"
+  />
+</div>
+`;

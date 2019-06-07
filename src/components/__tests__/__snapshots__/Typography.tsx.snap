@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<H1/> should render without crashing 1`] = `
+<div>
+  <h1
+    class="Typography__H1-n3ni2d-0 hhYBab"
+  />
+</div>
+`;
+
+exports[`<P/> should render without crashing 1`] = `
+<div>
+  <p
+    class="Typography__P-n3ni2d-1 fVZwR"
+  />
+</div>
+`;
