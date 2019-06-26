@@ -38,6 +38,5 @@ npm start
 
 ## Explanation of Project
 
-This project is simplistic, and therefore does not utilize unecessary
-dependencies (like a router). The project, however, does utilize a finite state
-machine for keeping all state and progress through game.
+The project, however, does utilize a finite state machine for keeping all state
+and progress through game.
