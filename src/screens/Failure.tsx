@@ -1,6 +1,7 @@
 import React from 'react'
 import {State} from 'xstate'
 import {Actions, Button, Container, H1, P, TextContainer} from '../components'
+import {AppMachineContext, AppMachineEvent} from '../types'
 
 interface FailureProps {
   retry: () => State<AppMachineContext, AppMachineEvent>

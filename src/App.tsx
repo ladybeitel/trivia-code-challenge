@@ -1,3 +1,4 @@
+import {Router} from '@reach/router'
 import {useMachine} from '@xstate/react'
 import React from 'react'
 import Confetti from 'react-confetti'
@@ -6,10 +7,10 @@ import {ErrorBoundary, GlobalStyle} from './components'
 import {useWindowSize} from './hooks'
 import {appMachine} from './machines'
 import {
-  Failure as FailureScreen,
-  Loading as LoadingScreen,
-  Quiz as QuizScreen,
-  Results as ResultsScreen,
+  // Failure as FailureScreen,
+  // Loading as LoadingScreen,
+  // Quiz as QuizScreen,
+  // Results as ResultsScreen,
   Welcome as WelcomeScreen,
 } from './screens'
 
@@ -25,7 +26,10 @@ function App() {
       <AppWrapper>
         <GlobalStyle />
         <Main>
-          {current.matches('welcome') ? (
+          <Router>
+            <WelcomeScreen path='/' startQuiz={() => send('START_QUIZ')} />
+          </Router>
+          {/* {current.matches('welcome') ? (
             <WelcomeScreen startQuiz={() => send('START_QUIZ')} />
           ) : current.matches('loading') ? (
             <LoadingScreen />
@@ -50,7 +54,7 @@ function App() {
               playAgain={() => send('PLAY_AGAIN')}
               totalQuestions={current.context.questions.length}
             />
-          ) : null}
+          ) : null} */}
         </Main>
         {current.context.displayConfetti && (
           <CustomizedConfetti width={width} height={height} />

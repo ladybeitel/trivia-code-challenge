@@ -2,6 +2,7 @@ import React from 'react'
 import tw from 'tailwind.macro'
 import {State} from 'xstate'
 import {Button, Container, CorrectIcon, H1, WrongIcon} from '../components'
+import {AppMachineContext, AppMachineEvent, Question} from '../types'
 import {getTotalCorrectAnswers} from '../utils'
 
 const QuestionResults = tw.ul`w-3/4 my-4`
@@ -25,6 +26,7 @@ export const Results: React.SFC<ResultsProps> = ({
       <H1>
         You scored
         <br />
+        {/* //@TODO: move to state machine */}
         {totalCorrectAnswers} / {totalQuestions}
       </H1>
       <QuestionResults>

@@ -1,8 +1,10 @@
+import {RouteComponentProps} from '@reach/router'
 import React from 'react'
 import {State} from 'xstate'
 import {Button, Container, H1, P, TextContainer} from '../components'
+import {AppMachineContext, AppMachineEvent} from '../types'
 
-interface WelcomeProps {
+interface WelcomeProps extends RouteComponentProps {
   startQuiz: () => State<AppMachineContext, AppMachineEvent>
 }
 export const Welcome: React.SFC<WelcomeProps> = ({startQuiz}) => (

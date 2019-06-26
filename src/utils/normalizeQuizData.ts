@@ -1,4 +1,5 @@
 import decode from 'lean-he/decode'
+import {Question, QuizDataQuestion} from '../types'
 
 export const normalizeQuizData = (data: QuizDataQuestion[]): Question[] =>
   data.reduce(

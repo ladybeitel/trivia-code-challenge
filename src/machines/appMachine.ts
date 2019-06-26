@@ -1,4 +1,5 @@
 import {assign, Machine} from 'xstate'
+import {AppMachineContext, AppMachineEvent, AppMachineSchema} from '../types'
 import {fetchAndNormalizeQuizData} from '../utils'
 
 export const appMachine = Machine<
@@ -63,7 +64,7 @@ export const appMachine = Machine<
   },
   {
     actions: {
-      resetGame: assign(ctx => ({
+      resetGame: assign(() => ({
         currentQuestion: 0,
         currentQuestionDisplay: 1,
         displayConfetti: false,

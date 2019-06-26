@@ -2,8 +2,9 @@ import React from 'react'
 import tw from 'tailwind.macro'
 import {State} from 'xstate'
 import {Actions, Button, Container, H1, P} from '../components'
+import {AppMachineContext, AppMachineEvent, Question} from '../types'
 
-const Question = tw(P)`w-full md:w-4/5 mb-2 text-center`
+const QuestionText = tw(P)`w-full md:w-4/5 mb-2 text-center`
 const QuestionsCount = tw(P)`text-sm mt-2`
 const Content = tw(Container)`w-full md:w-3/4 p-0 md:p-5`
 
@@ -25,7 +26,7 @@ export const Quiz: React.SFC<QuizProps> = ({
     <Container>
       <H1>{question.category}</H1>
       <Content>
-        <Question>{question.question}</Question>
+        <QuestionText>{question.question}</QuestionText>
         <Actions>
           <Button onClick={answerTrue}>True</Button>
           <Button onClick={answerFalse}>False</Button>
