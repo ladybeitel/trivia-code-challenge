@@ -9,8 +9,8 @@ import {appMachine} from './machines'
 import {
   // Failure as FailureScreen,
   // Loading as LoadingScreen,
-  // Quiz as QuizScreen,
-  // Results as ResultsScreen,
+  Quiz as QuizScreen,
+  Results as ResultsScreen,
   Welcome as WelcomeScreen,
 } from './screens'
 
@@ -28,6 +28,24 @@ function App() {
         <Main>
           <Router>
             <WelcomeScreen path='/' startQuiz={() => send('START_QUIZ')} />
+            <QuizScreen
+              answerTrue={() => send({type: 'ANSWER', answer: true})}
+              answerFalse={() => send({type: 'ANSWER', answer: false})}
+              currentQuestionNumber={current.context.currentQuestionDisplay}
+              path='/quiz'
+              question={
+                current.context.questions[current.context.currentQuestion]
+              }
+              totalQuestions={current.context.questions.length}
+            />
+            <WelcomeScreen path='/' startQuiz={() => send('START_QUIZ')} />
+            <ResultsScreen
+              path='/results'
+              playAgain={() => send('PLAY_AGAIN')}
+              questions={current.context.questions}
+              totalQuestions={current.context.questions.length}
+              totalCorrectAnswers={current.context.totalCorrectAnswers}
+            />
           </Router>
           {/* {current.matches('welcome') ? (
             <WelcomeScreen startQuiz={() => send('START_QUIZ')} />

@@ -1,3 +1,4 @@
+import {navigate} from '@reach/router'
 import {assign, Machine} from 'xstate'
 import {AppMachineContext, AppMachineEvent, AppMachineSchema} from '../types'
 import {fetchAndNormalizeQuizData} from '../utils'
@@ -20,7 +21,10 @@ export const appMachine = Machine<
     states: {
       welcome: {
         on: {
-          START_QUIZ: 'loading',
+          START_QUIZ: {
+            target: 'loading',
+            actions: 'routeToQuiz',
+          },
         },
       },
       loading: {
@@ -46,7 +50,7 @@ export const appMachine = Machine<
         on: {
           '': {
             target: 'results',
-            actions: 'updateDisplayConfetti',
+            actions: ['updateDisplayConfetti', 'routeToResults'],
             cond: 'allQuestionsAnswered',
           },
           ANSWER: {
@@ -56,7 +60,10 @@ export const appMachine = Machine<
       },
       results: {
         on: {
-          PLAY_AGAIN: 'welcome',
+          PLAY_AGAIN: {
+            target: 'welcome',
+            actions: 'routeToWelcome',
+          },
         },
         exit: 'resetGame',
       },
@@ -64,6 +71,9 @@ export const appMachine = Machine<
   },
   {
     actions: {
+      routeToQuiz: () => navigate(`/quiz`),
+      routeToResults: () => navigate(`/results`),
+      routeToWelcome: () => navigate(`/`),
       resetGame: assign(() => ({
         currentQuestion: 0,
         currentQuestionDisplay: 1,
