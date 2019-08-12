@@ -33,7 +33,7 @@ export const appMachine = Machine<
           src: () => fetchAndNormalizeQuizData(),
           onDone: {
             target: 'quiz',
-            actions: assign({questions: (context, event) => event.data}),
+            actions: assign({questions: (_, event) => event.data}),
           },
           onError: {
             target: 'failure',
@@ -74,13 +74,14 @@ export const appMachine = Machine<
       routeToQuiz: () => navigate(`/quiz`),
       routeToResults: () => navigate(`/results`),
       routeToWelcome: () => navigate(`/`),
-      resetGame: assign(() => ({
+      resetGame: assign<AppMachineContext>({
         currentQuestion: 0,
         currentQuestionDisplay: 1,
         displayConfetti: false,
+        questions: [],
         totalCorrectAnswers: 0,
-      })),
-      updateAnswer: assign((ctx, event) => ({
+      }),
+      updateAnswer: assign((ctx, event: any) => ({
         questions: [
           ...ctx.questions.slice(0, ctx.currentQuestion),
           {
@@ -98,9 +99,10 @@ export const appMachine = Machine<
         currentQuestion: ctx.currentQuestion += 1,
         currentQuestionDisplay: ctx.currentQuestionDisplay += 1,
       })),
-      updateDisplayConfetti: assign(ctx => ({
-        displayConfetti: ctx.totalCorrectAnswers >= ctx.questions.length / 2,
-      })),
+      updateDisplayConfetti: assign<AppMachineContext>({
+        displayConfetti: ctx =>
+          ctx.totalCorrectAnswers >= ctx.questions.length / 2,
+      }),
     },
     guards: {
       allQuestionsAnswered: context => {

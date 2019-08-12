@@ -1,10 +1,9 @@
 import {RouteComponentProps} from '@reach/router'
 import React from 'react'
 import tw from 'tailwind.macro'
-// import {State} from 'xstate'
+import {State} from 'xstate'
 import {Button, Container, CorrectIcon, H1, WrongIcon} from '../components'
-import {Question} from '../types'
-// import {AppMachineContext, AppMachineEvent, Question} from '../types'
+import {AppMachineContext, AppMachineEvent, Question} from '../types'
 
 const QuestionResults = tw.ul`w-3/4 my-4`
 const Icon = tw.span`mr-4`
@@ -12,8 +11,7 @@ const Result = tw.li`flex mb-4 items-center`
 
 interface ResultsProps extends RouteComponentProps {
   questions: Question[]
-  // playAgain: () => State<AppMachineContext, AppMachineEvent>
-  playAgain: () => void
+  playAgain: () => State<AppMachineContext, AppMachineEvent>
   totalCorrectAnswers: number
   totalQuestions: number
 }
