@@ -1,4 +1,3 @@
-import {RouteComponentProps} from '@reach/router'
 import React from 'react'
 import tw from 'tailwind.macro'
 import {State} from 'xstate'
@@ -9,14 +8,14 @@ const QuestionResults = tw.ul`w-3/4 my-4`
 const Icon = tw.span`mr-4`
 const Result = tw.li`flex mb-4 items-center`
 
-interface ResultsProps extends RouteComponentProps {
+interface ResultsProps {
   questions: Question[]
   playAgain: () => State<AppMachineContext, AppMachineEvent>
   totalCorrectAnswers: number
   totalQuestions: number
 }
 
-export const Results: React.SFC<ResultsProps> = ({
+export const Results: React.FC<ResultsProps> = ({
   playAgain,
   questions,
   totalCorrectAnswers,

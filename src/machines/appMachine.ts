@@ -1,4 +1,3 @@
-import {navigate} from '@reach/router'
 import {assign, Machine} from 'xstate'
 import {AppMachineContext, AppMachineEvent, AppMachineSchema} from '../types'
 import {fetchAndNormalizeQuizData} from '../utils'
@@ -71,9 +70,6 @@ export const appMachine = Machine<
   },
   {
     actions: {
-      routeToQuiz: () => navigate(`/quiz`),
-      routeToResults: () => navigate(`/results`),
-      routeToWelcome: () => navigate(`/`),
       resetGame: assign<AppMachineContext>({
         currentQuestion: 0,
         currentQuestionDisplay: 1,

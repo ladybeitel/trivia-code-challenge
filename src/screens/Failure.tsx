@@ -8,7 +8,7 @@ interface FailureProps {
   startOver: () => State<AppMachineContext, AppMachineEvent>
 }
 
-export const Failure: React.SFC<FailureProps> = ({retry, startOver}) => (
+export const Failure: React.FC<FailureProps> = ({retry, startOver}) => (
   <Container>
     <H1>Failure!</H1>
     <TextContainer>

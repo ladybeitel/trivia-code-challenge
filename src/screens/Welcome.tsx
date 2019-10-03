@@ -7,7 +7,7 @@ import {AppMachineContext, AppMachineEvent} from '../types'
 interface WelcomeProps extends RouteComponentProps {
   startQuiz: () => State<AppMachineContext, AppMachineEvent>
 }
-export const Welcome: React.SFC<WelcomeProps> = ({startQuiz}) => (
+export const Welcome: React.FC<WelcomeProps> = ({startQuiz}) => (
   <Container>
     <H1>Welcome to the Trivia Challenge</H1>
     <TextContainer>

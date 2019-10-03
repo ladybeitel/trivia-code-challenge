@@ -16,7 +16,7 @@ interface QuizProps extends RouteComponentProps {
   question: Question
   totalQuestions: number
 }
-export const Quiz: React.SFC<QuizProps> = ({
+export const Quiz: React.FC<QuizProps> = ({
   answerFalse,
   answerTrue,
   currentQuestionNumber,

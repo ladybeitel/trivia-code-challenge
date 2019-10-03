@@ -4,7 +4,7 @@ import {Container as Wrapper, H1} from '../components'
 
 const Container = tw(Wrapper)`justify-center`
 
-export const Loading: React.SFC = () => (
+export const Loading: React.FC = () => (
   <Container>
     <H1>Loading...</H1>
   </Container>

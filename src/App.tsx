@@ -1,4 +1,3 @@
-import {Router} from '@reach/router'
 import {useMachine} from '@xstate/react'
 import React from 'react'
 import Confetti from 'react-confetti'
@@ -7,8 +6,8 @@ import {ErrorBoundary, GlobalStyle} from './components'
 import {useWindowSize} from './hooks'
 import {appMachine} from './machines'
 import {
-  // Failure as FailureScreen,
-  // Loading as LoadingScreen,
+  Failure as FailureScreen,
+  Loading as LoadingScreen,
   Quiz as QuizScreen,
   Results as ResultsScreen,
   Welcome as WelcomeScreen,
@@ -26,28 +25,7 @@ function App() {
       <AppWrapper>
         <GlobalStyle />
         <Main>
-          <Router>
-            <WelcomeScreen path='/' startQuiz={() => send('START_QUIZ')} />
-            <QuizScreen
-              answerTrue={() => send({type: 'ANSWER', answer: true})}
-              answerFalse={() => send({type: 'ANSWER', answer: false})}
-              currentQuestionNumber={current.context.currentQuestionDisplay}
-              path='/quiz'
-              question={
-                current.context.questions[current.context.currentQuestion]
-              }
-              totalQuestions={current.context.questions.length}
-            />
-            <WelcomeScreen path='/' startQuiz={() => send('START_QUIZ')} />
-            <ResultsScreen
-              path='/results'
-              playAgain={() => send('PLAY_AGAIN')}
-              questions={current.context.questions}
-              totalQuestions={current.context.questions.length}
-              totalCorrectAnswers={current.context.totalCorrectAnswers}
-            />
-          </Router>
-          {/* {current.matches('welcome') ? (
+          {current.matches('welcome') ? (
             <WelcomeScreen startQuiz={() => send('START_QUIZ')} />
           ) : current.matches('loading') ? (
             <LoadingScreen />
@@ -71,8 +49,9 @@ function App() {
               questions={current.context.questions}
               playAgain={() => send('PLAY_AGAIN')}
               totalQuestions={current.context.questions.length}
+              totalCorrectAnswers={current.context.totalCorrectAnswers}
             />
-          ) : null} */}
+          ) : null}
         </Main>
         {current.context.displayConfetti && (
           <CustomizedConfetti width={width} height={height} />
