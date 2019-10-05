@@ -1,6 +1,7 @@
 import {assign, Machine} from 'xstate'
 import {AppMachineContext, AppMachineEvent, AppMachineSchema} from '../types'
 import {fetchAndNormalizeQuizData} from '../utils'
+import {createModel} from '@xstate/test'
 
 export const appMachine = Machine<
   AppMachineContext,
@@ -23,6 +24,11 @@ export const appMachine = Machine<
           START_QUIZ: {
             target: 'loading',
             actions: 'routeToQuiz',
+          },
+        },
+        meta: {
+          test: ({getByTestId}) => {
+            assert.ok(getByTestId('question-screen'))
           },
         },
       },
@@ -110,3 +116,5 @@ export const appMachine = Machine<
     },
   },
 )
+
+export const appModel = createModel(appMachine)
