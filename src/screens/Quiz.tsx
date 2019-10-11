@@ -1,4 +1,3 @@
-import {RouteComponentProps} from '@reach/router'
 import React from 'react'
 import tw from 'tailwind.macro'
 import {State} from 'xstate'
@@ -9,7 +8,7 @@ const QuestionText = tw(P)`w-full md:w-4/5 mb-2 text-center`
 const QuestionsCount = tw(P)`text-sm mt-2`
 const Content = tw(Container)`w-full md:w-3/4 p-0 md:p-5`
 
-interface QuizProps extends RouteComponentProps {
+interface QuizProps {
   answerFalse: () => State<AppMachineContext, AppMachineEvent>
   answerTrue: () => State<AppMachineContext, AppMachineEvent>
   currentQuestionNumber: number
