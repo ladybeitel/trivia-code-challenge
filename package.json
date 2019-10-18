@@ -28,7 +28,7 @@
     "@xstate/react": "0.7.1",
     "lean-he": "2.1.2",
     "react": "16.10.2",
-    "react-confetti": "4.0.1",
+    "react-confetti": "5.0.1",
     "react-dom": "16.10.2",
     "react-scripts": "3.2.0",
     "styled-components": "4.4.0",
