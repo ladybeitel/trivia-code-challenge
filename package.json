@@ -43,7 +43,7 @@
     "@types/jest": "24.0.25",
     "@types/node": "13.1.8",
     "@types/react": "16.9.17",
-    "@types/react-dom": "16.9.4",
+    "@types/react-dom": "16.9.5",
     "@types/styled-components": "4.4.2",
     "@xstate/graph": "1.0.0",
     "commitizen": "4.0.3",
